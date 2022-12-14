@@ -1,16 +1,11 @@
-# This is a sample Python script.
-
-# Press ⌥⇧R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌃' to toggle the breakpoint.
+import requests
+from bs4 import BeautifulSoup
+import json
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+url = 'http://nlkr.gov.kg'
+my_html = requests.get(url)
+soup = BeautifulSoup(my_html.text, 'html.parser')
+my_tag = 'page_title'
+header = soup.find('h2', class_ = my_tag)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
